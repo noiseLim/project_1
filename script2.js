@@ -139,3 +139,41 @@ console.log(Math.round(num)); // 12
 const test = '12.2px';
 console.log(parseInt(test)); // 12
 console.log(parseFloat(test)); // 12.2
+
+// Callback-функции///////////////////
+
+function first () {
+    // Do something
+    setTimeout(function() {
+        console.log(1);
+    }, 500);
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+
+
+function learnJS(lang, collback) {
+    console.log(`Я учу ${lang}!`);
+    collback();
+}
+learnJS('JavaScript', function() {
+    console.log('Я молодец!')
+});
+
+
+
+function learnJS(lang, collback) {
+    console.log(`Я учу ${lang}!`);
+}
+
+function done() {
+    console.log('Я молодец!');
+}
+
+learnJS('JavaScript', done);
