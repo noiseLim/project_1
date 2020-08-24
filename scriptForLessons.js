@@ -1,5 +1,7 @@
 "use strict"
 
+// 13. Условия/////////////////
+
 if (4 == 8) {
     console.log('OK!');
 } else {
@@ -37,6 +39,8 @@ switch (num3) {
         break;
 }
 
+// 14. Циклы///////////////////////
+
 let num = 50;
 // while (num < 55) {
 //     console.log(num);
@@ -66,7 +70,7 @@ for (let i = 1; i < 10; i++) {
     console.log(i);
 }
 
-// ///////////Функции///////////////
+// 16. ///////////Функции///////////////
 
 // function declaration (работает до того как будет объявлена)
 let num = 20;
@@ -112,7 +116,7 @@ const calc2 = (a, b) => {
 
 console.log(calc(3, 2));
 
-// Методы и свойства строк и чисел///////////////////////
+// 17. Методы и свойства строк и чисел///////////////////////
 
 const str = 'test';
 const arr = [1, 2, 3];
@@ -140,7 +144,7 @@ const test = '12.2px';
 console.log(parseInt(test)); // 12
 console.log(parseFloat(test)); // 12.2
 
-// Callback-функции///////////////////
+// 19. Callback-функции///////////////////
 
 function first () {
     // Do something
@@ -177,3 +181,41 @@ function done() {
 }
 
 learnJS('JavaScript', done);
+
+// 20. Объекты, деструктизация объектов/////////////////
+
+const option = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'red',
+        background: 'green'
+    },
+    makeTest: function() {
+        console.log('test');
+    }
+};
+option.makeTest();
+
+const {border, background} = option.colors;
+console.log(border);
+
+// console.log(Object.keys(option).length);
+// console.log(option["colors"]["border"])
+// console.log(option.name);
+// delete option.name;
+// console.log(option);
+let counter = 0;
+for (let key in option) {
+    if (typeof(option[key]) === 'object') {
+        for (let i in option[key]) {
+            console.log(`Свойство ${i} имеет значение ${option[key][i]}`);
+            counter++;
+        }
+    } else {
+        console.log(`Свойство ${key} имеет значение ${option[key]}`);
+        counter++;
+    }
+}
+console.log(counter);
