@@ -219,3 +219,70 @@ for (let key in option) {
     }
 }
 console.log(counter);
+
+
+
+
+const options = {
+    name: 'Aleksey',
+    height: 1024,
+    weight: 515,
+    colors: {
+        border: 'red',
+        bg: 'black'
+    }
+};
+
+
+for (let key in options) {
+    if (typeof(options[key]) === 'object') {
+        for (let i in options[key]) {
+            console.log(`Это свойство ${i} содержит ${options[key][i]}`);
+        }
+    } else {
+        console.log(`Это свойство ${key} содержит ${options[key]}`);
+    }
+}
+
+// 21.Массивы и псевдомассивы//////////////
+
+const arr = [1, 2, 3, 6, 8];
+
+// arr.pop(); //удаляет последний элемент
+// arr.push(10); //добавляет элемент в конец массива
+
+console.log(arr);
+
+for (i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+
+for (let value of arr) {
+    console.log(value);
+}
+
+const arr = [4, 1, 7, 2, 3, 6, 8];
+
+
+// arr[99] = 0;
+// console.log(arr.length); // 100
+// console.log(arr); // 94 пустые ячейки
+
+arr.forEach(function(item, i, arr) {
+    console.log(`${i}: ${item} внутри массива [${arr}]`)
+});
+
+const str = prompt('шо там, дядя?');
+const product = str.split(', ');
+product.sort();
+console.log(product.join(', '));
+
+
+const arr = [4, 15, 7, 21, 3, 16, 8];
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
