@@ -286,3 +286,106 @@ function compareNum(a, b) {
     return a - b;
 }
 
+// 22. Передача по ссылке или по значению, Spread оператор (ES6…
+
+let a = 5,
+      b = a;
+
+b = b + 5;
+console.log(b);
+console.log(a);
+
+const obj = {
+    a: 5,
+    b: 1
+};
+
+// const copy = obj; //ссылка
+
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj) { //поверхностная копия (не действует на вложенные объекты)
+    let copyObj = {};
+    let key;
+    for (key in mainObj) {
+        copyObj[key] = mainObj[key];
+    }
+    return copyObj
+}
+
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+
+const newNumbers = copy(numbers);
+newNumbers.a = 10;
+// newNumbers.c.x = 10; // вложенный объект остался ссылкой
+
+console.log(newNumbers);
+console.log(numbers);
+
+const add = {
+    d: 17,
+    e: 50
+};
+
+//объединение двух объектов (независимая копия, не считая свойства с:)
+console.log(Object.assign(numbers, add));
+
+
+//создается новый объект {}, в него помещается старый объект, итог в клоне лежит 
+//поверхностная копия объекта)
+const clone = Object.assign({}, add); 
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice(); // независимая копия объекта
+
+newArray[1] = 'f';
+console.log(newArray);
+console.log(oldArray);
+
+
+//Spread. Ещё один способ создания копий. оператор разворота. "..." разворачивает
+//структуру на отдельные значения
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+    console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7]; //все аргументы передаются в log. 
+//Массив разложился на три элемента
+log(...num);
+
+//Spred Оператор
+
+const array = ['a', 'b']; //поверхностная копия
+const newAarray = [...array];
+
+const q = {
+    one: 1,
+    two: 2
+};
+const newObj = {...q}; // поверхностная копия
+
+// console.log(newAarray);
+// console.log(array);
+console.log(newObj);
