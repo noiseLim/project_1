@@ -19,7 +19,7 @@ function Car(make, model, year, owner) {
     this.owner = owner;
   }
   
-// var mycar = new Car("Eagle", "Talon TSi", 1993, rand);
+// let mycar = new Car("Eagle", "Talon TSi", 1993, rand);
 // console.log(mycar);
 
 function Person(name, age, sex) {
@@ -28,7 +28,7 @@ function Person(name, age, sex) {
     this.sex = sex;
 }
 
-var rand = new Person('John', 23, 'M');
+let rand = new Person('John', 23, 'M');
 
-var mycar = new Car("Eagle", "Talon TSi", 1993, rand);
+let mycar = new Car("Eagle", "Talon TSi", 1993, rand);
 console.log(mycar);

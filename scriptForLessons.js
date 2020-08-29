@@ -389,3 +389,33 @@ const newObj = {...q}; // поверхностная копия
 // console.log(newAarray);
 // console.log(array);
 console.log(newObj);
+
+
+// 23. OOP///////////////////////
+
+let str = 'some';
+let strObj = new String(str);
+
+console.log(typeof(str));
+console.log(typeof(strObj));
+
+const solder = {
+    healt: 400,
+    armor: 150,
+    sayHello: function() {
+        console.log('Hello');
+    }
+};
+
+const john = Object.create(solder);
+
+// const john = {
+//     healt: 100
+// };
+
+// john.__proto__ = solder; //устаревшее
+Object.setPrototypeOf(john, solder);
+
+// console.log(john.armor);
+john.sayHello();
+
