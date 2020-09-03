@@ -32,3 +32,19 @@ let rand = new Person('John', 23, 'M');
 
 let mycar = new Car("Eagle", "Talon TSi", 1993, rand);
 console.log(mycar);
+
+const nums = [2,7,11,15];
+const target = 9;
+let number = [];
+
+let twoSum = function(nums, target) {
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] + nums[i+1] === target) {
+            number.push(i);
+        }
+    }
+    return number;
+};
+console.log(twoSum(nums, target));
+// console.log(number);
