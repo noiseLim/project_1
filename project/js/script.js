@@ -26,15 +26,21 @@ const movieDB = {
 
 
 const adv = document.querySelectorAll('.promo__adv'),
-      advTag = document.getElementsByTagName('img'),
+      advTag = document.querySelectorAll('img'),
       div = document.createElement('div');
 
 
-
+console.log(advTag);
 // div.classList.add('black');
 document.body.append(div);
 
+advTag.forEach(function(item, i) {
+    item.remove();
+});
+
 // adv[0].style.backgroundColor = 'red';
 // adv[0].remove();
-advTag[0].remove();
+// advTag[1].remove();
+// advTag[1].remove();
+// advTag[1].remove();
 
