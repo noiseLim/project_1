@@ -43,14 +43,14 @@ const div = document.createElement('div');
 div.classList.add('black');
 /*добавляем непосредственно на сайт, в данном случае в конец body (вставить 
 можем куда угодно)*/
-// document.body.append(div);
+document.body.append(div);
 
 //разово добавили div в родитель класса.wrapper в конец
 // document.querySelector('.wrapper').append(div);
 
 /*(добавили wrapper к остальным переменным). созданный элемент остался в 
 родительском классе wrapper*/
-wrapper.append(div);
+// wrapper.append(div);
 // wrapper.appendChild(div); // тоже самое (устарело)
 
 //добавили div не в конец (append), а уже в начало (prepand) блока wrapper
@@ -77,3 +77,30 @@ wrapper.append(div);
 
 //устаревшие конструкции
 
+//Можем добавить текст с хтмл структурой в блоки
+div.innerHTML = '<h1>Hello World</h1>';
+
+/*второй способ, но он работает только с текстом. Сделан с целью безопасности, т.к. 
+пользователь может ввести вместе с тексот хтмл теги и испортить верстку. Либо
+вставить скрипт*/
+// div.textContent = 'Hello';
+
+
+//вставляет прописанный нами хтмл код перед элементом div
+// div.insertAdjacentHTML("beforebegin", '<h2>Hello</h2>');
+
+//вставляет прописанный нами хтмл код в начало внутри элемента div
+// div.insertAdjacentHTML("afterbegin", '<h2>Hello</h2>');
+
+//вставляет прописанный нами хтмл код в конец внутри элемента div
+// div.insertAdjacentHTML("beforeend", '<h2>Hello</h2>');
+
+//вставляет прописанный нами хтмл код после элемента div
+div.insertAdjacentHTML("afterend", '<h2>Hello</h2>');
+
+
+/*не обязательно прописывать .document элементам которые находятся внутри
+других элементов, например hearts находится внутри wrapper*/
+
+// const wrapper = document.querySelector('.wrapper'),
+//       hearts = wrapper.querySelectorAll('.heart');
