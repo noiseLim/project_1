@@ -25,22 +25,43 @@ const movieDB = {
 };
 
 
-const adv = document.querySelectorAll('.promo__adv'),
-      advTag = document.querySelectorAll('img'),
-      div = document.createElement('div');
+const advTag = document.querySelectorAll('img'),
+      promo = document.querySelectorAll('.promo__bg'),
+      genre = document.getElementsByClassName('promo__genre'),
+      interactive = document.querySelectorAll('promo__interactive-item');
+    //   div = document.createElement('div');
+console.log(interactive);
 
-
-console.log(advTag);
+// console.log(advTag);
 // div.classList.add('black');
-document.body.append(div);
+// document.body.append(div);
 
+//1
 advTag.forEach(function(item, i) {
-    item.remove();
+    if (i != [0]) {
+        item.remove();
+    }
 });
 
-// adv[0].style.backgroundColor = 'red';
-// adv[0].remove();
-// advTag[1].remove();
-// advTag[1].remove();
-// advTag[1].remove();
+//2
+genre[0].textContent = 'ДРАМА';
 
+
+//3
+// promo[0].style.background = 'red';
+promo[0].style.backgroundImage = 'url("img/bg.jpg")';
+
+
+
+//4
+// interactive[0].replaceWith(movieDB.movies[0]);
+
+
+// interactive.forEach(i => {
+//     interactive[i].replaceWith(movieDB.movies[i]);
+// });
+
+// interactive.forEach(item => {
+//     if (interactive
+//     item.interactive[0].replaceWith(movieDB.movies[0]);
+// });
