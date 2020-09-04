@@ -28,13 +28,12 @@ const movieDB = {
 const advTag = document.querySelectorAll('img'),
       promo = document.querySelectorAll('.promo__bg'),
       genre = document.getElementsByClassName('promo__genre'),
-      interactive = document.querySelectorAll('promo__interactive-item');
-    //   div = document.createElement('div');
+      interactive = document.querySelectorAll('promo__interactive-item'),
+      movieList = document.querySelector('.promo__interactive-list');
+
 console.log(interactive);
 
 // console.log(advTag);
-// div.classList.add('black');
-// document.body.append(div);
 
 //1
 advTag.forEach(function(item, i) {
@@ -42,6 +41,15 @@ advTag.forEach(function(item, i) {
         item.remove();
     }
 });
+
+
+//более верное решение из урока
+// const advTagWay = document.querySelectorAll('.promo__adv img');
+
+// advTagWay.forEach(item => {
+//     item.remove();
+// });
+
 
 //2
 genre[0].textContent = 'ДРАМА';
@@ -53,7 +61,7 @@ promo[0].style.backgroundImage = 'url("img/bg.jpg")';
 
 
 
-//4
+//4,5
 // interactive[0].replaceWith(movieDB.movies[0]);
 
 
@@ -65,3 +73,17 @@ promo[0].style.backgroundImage = 'url("img/bg.jpg")';
 //     if (interactive
 //     item.interactive[0].replaceWith(movieDB.movies[0]);
 // });
+
+movieList.innerHTML = "";
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+    <li class="promo__interactive-item">${i + 1}. ${film}
+        <div class="delete"></div>
+    </li>`;
+
+});
+
+{/* <li class="promo__interactive-item">ЛОГАН<div class="delete"></div></li> */}
