@@ -1,4 +1,4 @@
-// const btn = document.querySelector('button');
+const btn = document.querySelector('button');
 
 /*НЕ лучший вариант кода. Мы можем забыть/не знать, что уже назначали
 событие для элемента и назначить другой. В таком случае первое 
@@ -35,10 +35,10 @@
 произошло событие (наша хтмл строка)).
 в прмере удалили со страницы после клика*/
 
-// btn.addEventListener('click', (e) => {
-//     // console.log(e.target);
-//     e.target.remove();
-// });
+btn.addEventListener('click', (e) => {
+    console.log(e);
+    // e.target.remove();
+});
 
 //написали функцию для удаления
 // const deleteElement = (e) => {
@@ -74,28 +74,28 @@ deleteElement*/
 поднимаюсь выше*/
 /*event.currentTarget используется, когда один и тот же обработчик 
 события присваивается нескольким элементам.*/
-const overlay = document.querySelector('.overlay');
+// const overlay = document.querySelector('.overlay');
 
-const deleteElement = (e) => {
-    // console.log(e.currentTarget);
-    console.log(e.target);
-    console.log(e.type);
-};
+// const deleteElement = (e) => {
+//     // console.log(e.currentTarget);
+//     console.log(e.target);
+//     console.log(e.type);
+// };
 
 // btn.addEventListener('click', deleteElement);
 // overlay.addEventListener('click', deleteElement);
 
 
 //отменяем стандартное поведение браузера 
-const link = document.querySelector('a');
+// const link = document.querySelector('a');
 
-link.addEventListener('click', function(event) {
-    event.preventDefault(); /*метод остан-ет станд. повед. браузера,
-    этот участок кода всегда помещается в начало*/
+// link.addEventListener('click', function(event) {
+//     event.preventDefault(); /*метод остан-ет станд. повед. браузера,
+//     этот участок кода всегда помещается в начало*/
 
-    console.log(event.target); //вывели эдемент вместо ст. пов. бр-ра
-    alert('Сегодня без ютуба, бро');
-});
+//     console.log(event.target); //вывели эдемент вместо ст. пов. бр-ра
+//     alert('Сегодня без ютуба, бро');
+// });
 
 /*Если мы хотим использовать обработчик для нескольких элементов
 (вместо одной button - для всех) необходимо использовать метод
@@ -103,7 +103,7 @@ forEach иначе addEventListener не сработает (он не рабо�
 псевдомассивами)*/
 /*опция {once: true} событие срабатывает один раз и автоматически
 удаляется*/
-const btns = document.querySelectorAll('button');
-btns.forEach(btn => {
-    btn.addEventListener('click', deleteElement, {once: true});
-});
+// const btns = document.querySelectorAll('button');
+// btns.forEach(btn => {
+//     btn.addEventListener('click', deleteElement, {once: true});
+// });
