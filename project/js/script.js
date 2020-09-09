@@ -11,57 +11,7 @@
 Отсортировать их по алфавиту 
 
 5) Добавить нумерацию выведенных фильмов */
-
-'use strict';
-
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};
-
-
-const advTag = document.querySelectorAll('.promo__adv img'),
-      promo = document.querySelectorAll('.promo__bg'),
-      genre = document.getElementsByClassName('promo__genre'),
-      interactive = document.querySelectorAll('promo__interactive-item'),
-      movieList = document.querySelector('.promo__interactive-list');
-// console.log(interactive);
-
-// console.log(advTag);
-
-//1
-advTag.forEach(item => {
-    item.remove();
-});
-
-
-//2
-genre[0].textContent = 'ДРАМА';
-
-
-//3
-promo[0].style.backgroundImage = 'url("img/bg.jpg")';
-
-//4,5
-movieList.innerHTML = "";
-
-movieDB.movies.sort();
-
-movieDB.movies.forEach((film, i) => {
-    movieList.innerHTML += `
-    <li class="promo__interactive-item">${i + 1}. ${film}
-        <div class="delete"></div>
-    </li>`;
-
-});
-
-
-
+//////////////////////////////////////////////
 /* Задания на урок:
 
 1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
@@ -79,23 +29,59 @@ P.S. Здесь есть несколько вариантов решения з
 
 5) Фильмы должны быть отсортированы по алфавиту */
 
-// const inputValue = document.querySelector('.adding__input').value;
-    //   btn = document.querySelector('button');
-// console.log(inputValue);
-// console.log(btn);
-const btn = document.querySelector('button');
+'use strict';
 
-btn.addEventListener('click', getIn);
+document.addEventListener('DOMContentLoaded', () => {
 
-function getIn() {
-    const inputValue = document.getElementsByTagName('input').value;
-    // console.log(inputValue);
-    movieDB.movies.forEach(item => {
-        console.log(item);
+    const movieDB = {
+        movies: [
+            "Логан",
+            "Лига справедливости",
+            "Ла-ла лэнд",
+            "Одержимость",
+            "Скотт Пилигрим против..."
+        ]
+    };
+    
+    const advTag = document.querySelectorAll('.promo__adv img'),
+          promo = document.querySelectorAll('.promo__bg'),
+          genre = document.getElementsByClassName('promo__genre'),
+          movieList = document.querySelector('.promo__interactive-list'),
+          addForm = document.querySelector('form.add'),
+          addInput = document.querySelector('.adding__input');
+
+    addForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        
+        const addFilm = addInput.value;
+        
+        movieDB.movies.push(addFilm);
+        movieDB.movies.sort();
+        
     });
-}
+    
+    advTag.forEach(item => {
+        item.remove();
+    });
+    
+    genre[0].textContent = 'ДРАМА';
+    
+    promo[0].style.backgroundImage = 'url("img/bg.jpg")';
+    
+    
+    movieDB.movies.sort();
+    
+    function creteBaseFilm (films, parent) {
+        parent.innerHTML = "";
 
-// console.log(movieDB);
-// console.log(btn);
-// getIn();
-console.log(movieDB);
+        films.forEach((film, i) => {
+            parent.innerHTML += `
+            <li class="promo__interactive-item">${i + 1}. ${film}
+                <div class="delete"></div>
+            </li>`;
+        }); 
+    }
+    creteBaseFilm(movieDB.movies, movieList);
+    
+});
