@@ -48,29 +48,45 @@ document.addEventListener('DOMContentLoaded', () => {
           genre = document.getElementsByClassName('promo__genre'),
           movieList = document.querySelector('.promo__interactive-list'),
           addForm = document.querySelector('form.add'),
-          addInput = document.querySelector('.adding__input');
+          addInput = document.querySelector('.adding__input'),
+          checkbox = addForm.querySelector('[type="checkbox"]');
 
     addForm.addEventListener('submit', (event) => {
         event.preventDefault();
         
         
         const addFilm = addInput.value;
+        const favorite = checkbox.checked;
         
         movieDB.movies.push(addFilm);
-        movieDB.movies.sort();
+        sotrMovie(movieDB.movies);
+
+        creteBaseFilm(movieDB.movies, movieList);
+
+        addForm.reset();
         
     });
     
+    const delAdv = (arr) => {
+        arr.forEach(item => {
+            item.remove();
+        });
+    };
+
+
     advTag.forEach(item => {
         item.remove();
     });
+
+    const makeChanges = () => {
+        genre[0].textContent = 'ДРАМА';
+        promo[0].style.backgroundImage = 'url("img/bg.jpg")';
+    };
     
-    genre[0].textContent = 'ДРАМА';
-    
-    promo[0].style.backgroundImage = 'url("img/bg.jpg")';
-    
-    
-    movieDB.movies.sort();
+    function sotrMovie (film) {
+        film.sort();
+    }
+
     
     function creteBaseFilm (films, parent) {
         parent.innerHTML = "";
@@ -82,6 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>`;
         }); 
     }
+
+    delAdv(advTag);
+    makeChanges();
+    sotrMovie(movieDB.movies);
     creteBaseFilm(movieDB.movies, movieList);
     
 });
