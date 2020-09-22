@@ -47,4 +47,48 @@ btns[0].addEventListener('click', () => {
 
 /*устаревшее свойство className(не стоит его использовать). 
 содержит классы в качестве одной строки*/
-console.log(btns[0].className);
+// console.log(btns[0].className);
+
+
+//делегирование событий
+
+const wrapper = document.querySelector('.btn-block');
+/*если элемент подходит под условие, то на нем будет 
+срабатывать та функция, которую мы написали или передали 
+(мы делегируем события с родителя на его потомков)*/
+// wrapper.addEventListener('click', (event) => {
+//     if (event.target && event.target.tagName == "BUTTON") {
+//         console.log('Hello');
+//     }
+// });
+
+//ещё один способ делегирования. проверка на совпадения (например button и red)
+wrapper.addEventListener('click', (event) => {
+    if (event.target && event.target.matches('button.red')) {
+        console.log('Hello');
+    }
+});
+
+
+//пример без делегирования
+/*навешаный обработчик события на каждую кнопку срабатывает на кнопки,
+которые уже были в верстке, но не работает на кнопки добавленые динамически*/ 
+// btns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         console.log('Hello');
+//     });
+// });
+
+//создание динамического элемента на странице
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn);
+
+
+
+//делегирование с использованием classList И метода contains
+// wrapper.addEventListener('click', (event) => {
+//     if (event.target && event.target.classList.contains('blue')) {
+//         console.log('Hi');
+//     }
+// });
