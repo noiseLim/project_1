@@ -33,3 +33,18 @@ btn.addEventListener('click', () => {
     /*можем увидеть сколько пользователь отмотал
     пикселей по клику*/
 });
+
+//метод получает координаты объекта
+console.log(box.getBoundingClientRect());
+
+//можем получить отдельное значение
+console.log(box.getBoundingClientRect().top);
+
+
+// можем получать стили псевдоэлементов
+const style = window.getComputedStyle(box);
+console.log(style.display);
+
+
+console.log(document.documentElement.clientWidth);
+console.log(document.documentElement.scrollTop);
