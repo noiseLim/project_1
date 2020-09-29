@@ -14,8 +14,8 @@
 
 
 //Распространенные методы получения дат
-// const now = new Date();
-// console.log(now);
+const now = new Date();
+console.log(now);
 
 // console.log(now.getFullYear()); //год
 // console.log(now.getMonth()); //месяц (начиная с 0) 
