@@ -1,34 +1,43 @@
-// Метод Array.isArray() возвращает true, если объект является массивом и 
-// false, если он массивом не является.
+// "use strict";
 
-// let obj = {
-//     a: 1,
-//     b: 2,
-// };
+// const mess = (function(name) {
+//     return 'Hello ' + name;
+// }('Aleksey'));
+// console.log(mess);
 
-// let arr = [1, 2, 3];
+// console.log(this === window);
+// this.MyString = 'Hello world';
+// console.log(window.MyString);
 
-// console.log(Array.isArray(arr));
+// function sum(a, b) {
+//     console.log(this === window); // => true
+//     this.myNumber = 20; // add 'myNumber' property to global object
+//     return a + b;
+//  }
+//  // sum() is invoked as a function
+//  // this in sum() is a global object (window)
+//  console.log(sum(15, 16));     // => 31
+//  console.log(window.myNumber); // => 20
 
+// function execute() {  
+//     'use strict'; // activate the strict mode
 
+//     function concat(str1, str2) {
+//     // the strict mode is enabled too
+//     console.log(this === undefined); // => true
+//     return str1 + str2;
+//     }
+//     // concat() is invoked as a function in strict mode
+//     // this in concat() is undefined
+//     console.log(concat('Hello', ' World!'));
+// }
 
-function Car(make, model, year, owner) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.owner = owner;
-  }
-  
-// let mycar = new Car("Eagle", "Talon TSi", 1993, rand);
-// console.log(mycar);
+// execute();
 
-function Person(name, age, sex) {
-    this.name = name;
-    this.age = age;
-    this.sex = sex;
-}
+const myObj = {
+    newObject: function (name) {
+        return `Hello ${name}`;
+    } 
+};
 
-let rand = new Person('John', 23, 'M');
-
-let mycar = new Car("Eagle", "Talon TSi", 1993, rand);
-console.log(mycar);
+console.log(myObj.newObject('Aleksey'));
