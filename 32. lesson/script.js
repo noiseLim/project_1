@@ -2,7 +2,7 @@
 // console.log(document.documentElement); //получаем в консоль html со всем содержимым
 // console.log(document.body.childNodes); /*ChildNodes позволяет получить все ноды, все 
 // узлы внутри родителя body*/
-// console.log(document.body.firstChild);  //свойств получает первого ребенка родителя
+console.log(document.body.firstChild);  //свойств получает первого ребенка родителя
 // console.log(document.body.lastChild);  //свойств получает последнего ребенка родителя
 
 // console.log(document.querySelector('#current').parentNode);
