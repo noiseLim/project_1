@@ -41,3 +41,82 @@ const myObj = {
 };
 
 console.log(myObj.newObject('Aleksey'));
+
+
+const numbers = {
+    a: 2,
+    b: 3,
+    c: {
+        d: 5,
+    }
+};
+
+function copy(newNum) {
+    let firstNum = {};
+
+    for (let key in newNum) {
+        firstNum[key] = newNum[key];
+
+    }
+    return firstNum;
+}
+
+const newNumber = copy(numbers);
+
+newNumber.b = 10;
+
+console.log(numbers);
+console.log(newNumber);
+
+
+const array = [1, 2, 3];
+const newArray = array.slice();
+
+newArray[1] = 'dfs';
+
+console.log(array);
+console.log(newArray);
+
+const obj = {
+    a: 2,
+    y: 4,
+    k: {
+        s: 9,
+    }
+};
+
+const newObj = {...obj};
+
+newObj.k.s = 0;
+newObj.y = 0;
+
+console.log(obj);
+console.log(newObj);
+
+
+const property = {
+    height: 1024,
+    weight: 1024,
+    color: {
+        bg: 'red',
+        border: 'yellow'
+    }
+};
+
+// let key;
+// let i;
+
+function showProperty(obj) {
+    for (let key in obj) {
+        if (typeof(obj[key]) === 'object') {
+            for (let i in obj[key]) {
+                console.log(`Значение ${i} содержит свойство ${obj[key][i]}`);
+            }
+        } else {
+            console.log(`Значение ${key} содержит свойство ${obj[key]}`);
+        }
+
+    }
+}
+
+showProperty(property);
