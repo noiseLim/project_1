@@ -68,3 +68,23 @@ const arr2 = ['apple', 'pear', 'plum'];
 
 const res2 = arr2.reduce((sum, current) => `${sum}, ${current}`);
 console.log(res2);
+
+
+//example
+// получим массив с именами имеющими значение 'person'
+const obj = {
+    ivan: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
+};
+
+/* entries - преобразовал объект в массив с вложенными внутри
+массивами каждого элемента 'ключ-значение
+filter - отфильтровал массивы с значениями 'persone'
+map - изменил массив, сформировав массив со значениями с индесом 0*/
+const newArr = Object.entries(obj)
+.filter(item => item[1] === 'persone')
+.map(item => item[0]);
+
+console.log(newArr);
