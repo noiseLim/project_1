@@ -19,4 +19,25 @@ $(document).ready(function() {
             height: 'toggle'
         }, 2000);
     });
+
+    $('<div><p>Hello</p></div>').appendTo('.list');
+
+    const el = document.getElementsByClassName("list-item");
+
+    $(el[1]).css('height', '100px');
+
+    $("img:eq(1)")
+    // .parent()
+    .css("heigth", "10px")
+    .fadeTo(0, 0.5)
+    .addClass("divOwner");
+
+
+    const heights = [];
+ 
+    $("div").each(function(indx, element) {
+        heights.push($(element).height());
+    });
+    console.log(heights);
+
 });
