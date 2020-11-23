@@ -22,8 +22,11 @@ const persone = {
         this.age = num;
     }
 };
-console.log(persone.userAge = 33); /*без сеттера не сможем утановить
-новое значение*/
+// console.log(persone.userAge = 33); /*без сеттера не сможем утановить
+// новое значение*/
 console.log(persone.userAge);
+console.log(persone.age);
+persone.age = 20;
 
 console.log(persone);
+
